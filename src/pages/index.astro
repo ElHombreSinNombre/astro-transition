@@ -1,0 +1,20 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { pokemons } from "../data/pokemon";
+---
+
+<Layout title="Pokemons">
+  <section class="grid grid-cols-4 gap-4">
+    {
+      pokemons.map((pokemon: { id: string; name: string; url: string }) => (
+        <a
+          href={pokemon.id}
+          class="card mx-2 cursor-pointer text-center capitalize"
+          transition:name={pokemon?.id}
+        >
+          <h2>{pokemon.name}</h2>
+        </a>
+      ))
+    }
+  </section>
+</Layout>

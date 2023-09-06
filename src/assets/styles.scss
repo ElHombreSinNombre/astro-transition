@@ -1,0 +1,33 @@
+body {
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+}
+
+::-webkit-scrollbar {
+  width: 0.375em;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-white;
+  border-radius: 0.625em;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-black;
+  border-radius: 0.625em;
+}
+
+.center {
+  @apply flex items-center justify-center min-h-screen;
+}
+
+.card {
+  @apply bg-white shadow-md rounded  border p-6 transition duration-500 ease-in-out;
+  &:hover {
+    @apply border-black shadow-lg;
+  }
+}

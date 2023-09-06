@@ -1,0 +1,34 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { pokemons } from "../data/pokemon";
+
+const { pokemon } = Astro.params;
+
+const info = pokemons.find((info) => info.id === pokemon);
+---
+
+<Layout title={info?.name}>
+  <a
+    href="javascript:history.back()"
+    title="Back"
+    class="text-white rounded-full bg-gray-500 p-2 m-2 absolute top-0 left-0 hover:bg-black transition-all ease-in-out duration-500"
+  >
+    <svg
+      class="w-6 h-6 text-currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      fill="none"
+    >
+      <path
+        d="M21 12H3m0 0l8.5-8.5M3 12l8.5 8.5"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    </svg>
+  </a>
+  <section class="card text-center" transition:name={info?.id}>
+    <h1 class="font-bold capitalize">{info?.name}</h1>
+    <img src={info?.url} title={info?.name} alt={info?.name} loading="lazy" />
+  </section>
+</Layout>
